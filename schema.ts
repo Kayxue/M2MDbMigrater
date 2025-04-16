@@ -7,6 +7,7 @@ import {
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
+import { createDocumentRegistry } from "typescript";
 
 export const home = pgTable("home", {
   id: varchar("id", { length: 10 }).primaryKey().notNull(),
@@ -40,17 +41,14 @@ export const dataContainer = pgTable("data_container", {
   createAt: timestamp("create_at").defaultNow().notNull(),
 });
 
-export const sensorData = pgTable(
-  "sensor_data",
-  {
-    containerId: varchar("container_id", { length: 10 })
-      .references(() => dataContainer.id, { onDelete: "cascade" })
-      .notNull(),
-    timestamp: timestamp("timestamp").defaultNow().notNull(),
-    data: json("data"),
-  },
-  (t) => [primaryKey({ columns: [t.containerId, t.timestamp] })],
-);
+export const sensorData = pgTable("sensor_data", {
+  id: varchar("id", { length: 10 }).primaryKey().notNull(),
+  containerId: varchar("container_id", { length: 10 })
+    .references(() => dataContainer.id, { onDelete: "cascade" })
+    .notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  data: json("data"),
+});
 
 export const subscriber = pgTable("subscribers", {
   id: varchar("id", { length: 10 }).primaryKey().notNull(),

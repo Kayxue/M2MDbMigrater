@@ -1,37 +1,41 @@
 CREATE TABLE "application" (
-	"id" varchar(21) PRIMARY KEY NOT NULL,
-	"home_id" varchar(21) NOT NULL,
+	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"home_id" varchar(10) NOT NULL,
 	"name" text NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "data_container" (
-	"id" varchar(21) PRIMARY KEY NOT NULL,
-	"sensor_id" varchar(21) NOT NULL
+	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"sensor_id" varchar(10) NOT NULL,
+	"create_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "home" (
-	"id" varchar(21) PRIMARY KEY NOT NULL,
+	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"name" text NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "sensor" (
-	"id" varchar(21) PRIMARY KEY NOT NULL,
-	"application_id" varchar(21) NOT NULL,
+	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"application_id" varchar(10) NOT NULL,
+	"name" text NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "sensor_data" (
-	"container_id" varchar(21) NOT NULL,
+	"container_id" varchar(10) NOT NULL,
 	"timestamp" timestamp DEFAULT now() NOT NULL,
 	"data" json,
 	CONSTRAINT "sensor_data_container_id_timestamp_pk" PRIMARY KEY("container_id","timestamp")
 );
 --> statement-breakpoint
 CREATE TABLE "subscribers" (
-	"container_id" varchar(21) NOT NULL,
+	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"container_id" varchar(10) NOT NULL,
 	"notification_url" text NOT NULL,
-	CONSTRAINT "subscribers_container_id_notification_url_pk" PRIMARY KEY("container_id","notification_url")
+	"create_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 ALTER TABLE "application" ADD CONSTRAINT "application_home_id_home_id_fk" FOREIGN KEY ("home_id") REFERENCES "public"."home"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint

@@ -1,1 +1,0 @@
-ALTER TABLE "home" ADD COLUMN "name" text NOT NULL;

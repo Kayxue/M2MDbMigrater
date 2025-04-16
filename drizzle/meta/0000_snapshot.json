@@ -1,5 +1,5 @@
 {
-  "id": "cbff5acb-b676-4d17-ad4d-392ad3dcee78",
+  "id": "51bdd8a2-4314-4e5a-b924-91a80e746b9d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -10,13 +10,13 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": true,
           "notNull": true
         },
         "home_id": {
           "name": "home_id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
         },
@@ -62,15 +62,22 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": true,
           "notNull": true
         },
         "sensor_id": {
           "name": "sensor_id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
+        },
+        "create_at": {
+          "name": "create_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
@@ -101,8 +108,14 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
           "notNull": true
         },
         "created_at": {
@@ -127,13 +140,19 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": true,
           "notNull": true
         },
         "application_id": {
           "name": "application_id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
@@ -173,7 +192,7 @@
       "columns": {
         "container_id": {
           "name": "container_id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
         },
@@ -225,9 +244,15 @@
       "name": "subscribers",
       "schema": "",
       "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(10)",
+          "primaryKey": true,
+          "notNull": true
+        },
         "container_id": {
           "name": "container_id",
-          "type": "varchar(21)",
+          "type": "varchar(10)",
           "primaryKey": false,
           "notNull": true
         },
@@ -236,6 +261,13 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "create_at": {
+          "name": "create_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
@@ -254,15 +286,7 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {
-        "subscribers_container_id_notification_url_pk": {
-          "name": "subscribers_container_id_notification_url_pk",
-          "columns": [
-            "container_id",
-            "notification_url"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},

@@ -15,6 +15,13 @@
       "when": 1744976807342,
       "tag": "0001_blushing_triton",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1744977743974,
+      "tag": "0002_nostalgic_drax",
+      "breakpoints": true
     }
   ]
 }

@@ -40,18 +40,14 @@ export const dataContainer = pgTable("data_container", {
   createAt: timestamp("create_at").defaultNow().notNull(),
 });
 
-export const sensorData = pgTable(
-  "sensor_data",
-  {
-    id: varchar("id", { length: 10 }).notNull(),
-    containerId: varchar("container_id", { length: 10 })
-      .references(() => dataContainer.id, { onDelete: "cascade" })
-      .notNull(),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    data: json("data"),
-  },
-  (t) => [primaryKey({ columns: [t.id, t.containerId] })],
-);
+export const sensorData = pgTable("sensor_data", {
+  id: varchar("id", { length: 21 }).primaryKey().notNull(),
+  containerId: varchar("container_id", { length: 10 })
+    .references(() => dataContainer.id, { onDelete: "cascade" })
+    .notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  data: json("data"),
+});
 
 export const subscriber = pgTable("subscribers", {
   id: varchar("id", { length: 10 }).primaryKey().notNull(),

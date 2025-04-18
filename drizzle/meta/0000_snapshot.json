@@ -1,5 +1,5 @@
 {
-  "id": "223bad6e-e461-497e-8f1e-12bc3a2f4f26",
+  "id": "4dba8391-a8a3-4394-b49a-b1e95163024e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -190,6 +190,12 @@
       "name": "sensor_data",
       "schema": "",
       "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "container_id": {
           "name": "container_id",
           "type": "varchar(10)",
@@ -227,11 +233,11 @@
         }
       },
       "compositePrimaryKeys": {
-        "sensor_data_container_id_created_at_pk": {
-          "name": "sensor_data_container_id_created_at_pk",
+        "sensor_data_id_container_id_pk": {
+          "name": "sensor_data_id_container_id_pk",
           "columns": [
-            "container_id",
-            "created_at"
+            "id",
+            "container_id"
           ]
         }
       },

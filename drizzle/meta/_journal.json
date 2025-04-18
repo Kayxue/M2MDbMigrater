@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1744946696949,
-      "tag": "0000_cheerful_shape",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1744962640196,
-      "tag": "0001_cool_killmonger",
+      "when": 1744964905045,
+      "tag": "0000_bored_the_renegades",
       "breakpoints": true
     }
   ]

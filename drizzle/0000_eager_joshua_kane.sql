@@ -33,10 +33,11 @@ CREATE TABLE "sensor_data" (
 );
 --> statement-breakpoint
 CREATE TABLE "subscribers" (
-	"id" varchar(10) PRIMARY KEY NOT NULL,
+	"id" varchar(10) NOT NULL,
 	"container_id" varchar(10) NOT NULL,
 	"notification_url" text NOT NULL,
-	"create_at" timestamp DEFAULT now() NOT NULL
+	"create_at" timestamp DEFAULT now() NOT NULL,
+	CONSTRAINT "subscribers_id_container_id_pk" PRIMARY KEY("id","container_id")
 );
 --> statement-breakpoint
 ALTER TABLE "application" ADD CONSTRAINT "application_home_id_home_id_fk" FOREIGN KEY ("home_id") REFERENCES "public"."home"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint

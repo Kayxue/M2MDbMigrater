@@ -53,14 +53,18 @@ export const sensorData = pgTable(
   (t) => [primaryKey({ columns: [t.id, t.containerId] })],
 );
 
-export const subscriber = pgTable("subscribers", {
-  id: varchar("id", { length: 10 }).primaryKey().notNull(),
-  containerId: varchar("container_id", { length: 10 })
-    .references(() => dataContainer.id, { onDelete: "cascade" })
-    .notNull(),
-  notificationUrl: text("notification_url").notNull(),
-  createAt: timestamp("create_at").defaultNow().notNull(),
-});
+export const subscriber = pgTable(
+  "subscribers",
+  {
+    id: varchar("id", { length: 10 }).notNull(),
+    containerId: varchar("container_id", { length: 10 })
+      .references(() => dataContainer.id, { onDelete: "cascade" })
+      .notNull(),
+    notificationUrl: text("notification_url").notNull(),
+    createAt: timestamp("create_at").defaultNow().notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.id, t.containerId] })],
+);
 
 export const homeToAppRelation = relations(home, ({ many }) => ({
   application: many(application),

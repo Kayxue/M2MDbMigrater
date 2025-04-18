@@ -1,5 +1,5 @@
 {
-  "id": "4dba8391-a8a3-4394-b49a-b1e95163024e",
+  "id": "82b3d727-ab26-43ce-9c28-a2e600e7a139",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -253,7 +253,7 @@
         "id": {
           "name": "id",
           "type": "varchar(10)",
-          "primaryKey": true,
+          "primaryKey": false,
           "notNull": true
         },
         "container_id": {
@@ -292,7 +292,15 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "subscribers_id_container_id_pk": {
+          "name": "subscribers_id_container_id_pk",
+          "columns": [
+            "id",
+            "container_id"
+          ]
+        }
+      },
       "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},

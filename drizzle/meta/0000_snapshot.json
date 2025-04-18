@@ -1,5 +1,5 @@
 {
-  "id": "51bdd8a2-4314-4e5a-b924-91a80e746b9d",
+  "id": "223bad6e-e461-497e-8f1e-12bc3a2f4f26",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -196,8 +196,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "timestamp": {
-          "name": "timestamp",
+        "created_at": {
+          "name": "created_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
@@ -227,11 +227,11 @@
         }
       },
       "compositePrimaryKeys": {
-        "sensor_data_container_id_timestamp_pk": {
-          "name": "sensor_data_container_id_timestamp_pk",
+        "sensor_data_container_id_created_at_pk": {
+          "name": "sensor_data_container_id_created_at_pk",
           "columns": [
             "container_id",
-            "timestamp"
+            "created_at"
           ]
         }
       },

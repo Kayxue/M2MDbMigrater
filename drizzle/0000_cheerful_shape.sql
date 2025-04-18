@@ -26,9 +26,9 @@ CREATE TABLE "sensor" (
 --> statement-breakpoint
 CREATE TABLE "sensor_data" (
 	"container_id" varchar(10) NOT NULL,
-	"timestamp" timestamp DEFAULT now() NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
 	"data" json,
-	CONSTRAINT "sensor_data_container_id_timestamp_pk" PRIMARY KEY("container_id","timestamp")
+	CONSTRAINT "sensor_data_container_id_created_at_pk" PRIMARY KEY("container_id","created_at")
 );
 --> statement-breakpoint
 CREATE TABLE "subscribers" (

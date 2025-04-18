@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1744785133510,
-      "tag": "0000_stiff_triton",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1744787227520,
-      "tag": "0001_known_maverick",
+      "when": 1744946696949,
+      "tag": "0000_cheerful_shape",
       "breakpoints": true
     }
   ]
